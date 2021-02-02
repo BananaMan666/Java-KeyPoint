@@ -96,8 +96,8 @@ systemctl start servername
 
 
 
+### linux常用命令：
 
-linux常用命令：
 https://blog.csdn.net/tianzongnihao/article/details/80539264
 
 pwd-显示当前目录
@@ -233,5 +233,11 @@ more 是一个分页工具，它允许一页一页地(或一个屏幕一个屏�
 
 
 
+### other
 
 sudo passwd username 修改用户密码
+
+whoami 查看确认用户。
+
+su root  切换用户
+
