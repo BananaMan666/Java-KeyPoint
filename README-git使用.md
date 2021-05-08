@@ -41,3 +41,28 @@ git merge master 		#合并matser，将master分支的修改代码合并到dev�
 git push -u origin dev
 ```
 
+
+
+### 实际情况：
+
+##### 1、将我的修改bug代码提交到远程test分支。
+
+**介绍**：目前我们远程仓库有三个java分支：master（产品上线分支），dev（程序员开发分支，主要是解决bug和开发新的功能），test（两种情况，一种是解决的bug传到这个分支来，另一种是上线前将开发的新功能传过来，让测试人员测试）
+
+我的代码是修改bug，然后我对应的分支是dev：远程dev。
+
+我先提交了一个修改bug的代码到dev，然后我拉取了dev代码（谢宁新开发的代码），导致我无法将我的分支push到test分支，因为test分支只需要解决bug的代码，不需要新开发功能的代码。
+
+**解决方案**：
+
+```bash
+# 我先将本地代码拉去一个分支
+git checkout -b local-test
+# 然后将local-test分支的代码进行回退到我提交的版本
+git reset --hard ID
+# 在拉取远程仓库test的代码进行合并, git pull <远程主机名> <远程分支名>:<本地分支名>
+git pull origin test:local-test
+# 合并完成后在将我的local-test分支代码进行push到远程仓库test分支,git pull <远程主机名> <本地分支名>:<远程分支名>
+git push origin local-test:test
+```
+

@@ -23,3 +23,23 @@
 #### 2、jar包有依赖问题
 
 情景介绍：feign接口，A包依赖B包，然后A中调用B中的方法。某天有了新的需求，需要B调用A包中的某个方法。
+
+
+
+#### 3、文件读写问题
+
+情景介绍：一个spm文件，页面展示并且可以修改。当时当修改之后，通过文件写入的方式写入改文件，其中文件内容写入正确。但是第二次读取数据时出现比较失败的问题，导致数据读取数量变少。每次写入，之后读取的数量更少了。
+
+```java
+				if(TransModelMatchParamConstants.spmAdditionalParam.contains(front)){ //每次更新之后这个比较就会失效几个数值
+					if("K1(NLOS)".equals(front) || "K2(NLOS)".equals(front)){
+						front = front.replace("(", "");
+						front = front.replace(")", "");
+					}
+					paramMap.put(front, result[1]);
+				}
+```
+
+解决方法是啥？
+
+原因就是这个方法是一个静态方法，被static修饰。然后这个方法之前有一个remove操作，就导致每次都会将这个集合移除两个，然后在比较的时候就会导致contains方法缺少两个数据的比较，自然无法保存到paramMap中去。
