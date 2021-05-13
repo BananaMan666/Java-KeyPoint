@@ -126,3 +126,17 @@ public class TransModelMatchParamConstants {
 此处是因为使用了静态常量，没有考虑到静态变量被操作之后他一直保持操作后的状态，导致的该问题。
 
 ![image-20210513172520958](C:\Users\刘咸鱼\AppData\Roaming\Typora\typora-user-images\image-20210513172520958.png)
+
+
+
+#### 4、linux下启动java类识别不到main方法
+
+在linux执行一个java方法，javac  类名.java，比如：javac TestJnaQ.java
+
+生成class文件后，执行java 类名，可能会失败，如果找不到类方法，则设置临时系统路径
+
+调用java -cp ./ 类名，即可，如java -cp ./ TestJnaQ
+
+总之，就是在执行java 命令的时候要在系统路径下才能识别main方法。
+
+或者在脚本里面设置系统路径。

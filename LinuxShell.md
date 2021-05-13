@@ -448,3 +448,13 @@ Linux 系统是一个多用户多任务的分时操作系统，任何一个要�
 - **`shutdown`：** `shutdown -h now`： 指定现在立即关机；`shutdown +5 "System will shutdown after 5 minutes"`：指定 5 分钟后关机，同时送出警告信息给登入用户。
 
 - **`reboot`：** **`reboot`：** 重开机。**`reboot -w`：** 做个重开机的模拟（只有纪录并不会真的重开机）。
+
+
+
+### 特殊问题：
+
+在linux执行一个java方法，javac  类名.java，比如：javac TestJnaQ.java
+
+生成class文件后，执行java 类名，可能会失败，如果找不到类方法，则设置临时系统路径
+
+调用java -cp ./ 类名，即可，如java -cp ./ TestJnaQ
