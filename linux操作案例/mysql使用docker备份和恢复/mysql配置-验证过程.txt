@@ -1,0 +1,151 @@
+mysql -V 查看mysql数据库版本
+
+my.cnf: /etc/my.cnf
+datadir： /var/lib/mysql/
+
+wget https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.10/binary/redhat/7/x86_64/percona-xtrabackup-24-2.4.10-1.el7.x86_64.rpm
+拉去
+
+测试mysql数据库：153服务器
+重装数据库url：https://www.cnblogs.com/hjw-zq/p/9791596.html
+
+卸载mysql：
+rpm -qa|grep mysql|xargs rpm -e --nodeps
+查看卸载成功与否：
+rpm -qa|grep mysql
+启动mysql 
+systemctl start mysqld.service
+systemctl stop mysqld.service
+
+============================全量备份=====================================
+docker run -v /mysql_bak:/target  -v /var/lib/mysql:/var/lib/mysql -e BACKUP_MODE=FULL -e MYSQL\_HOST=192.168.89.153 -e MYSQL\_PORT=3306 -e MYSQL\_USER=root -e MYSQL_PASSWORD='root123' ipunktbs/xtrabackup run backup
+
+关闭mysql后在进行全局恢复
+systemctl stop mysqld
+将数据库里面的内容全部删除， rm -rf /var/lib/mysql/*
+//全量恢复
+docker run -v /mysql_bak/full:/target -v /var/lib/mysql:/var/lib/mysql -e MYSQL\_HOST=192.168.89.153 -e MYSQL\_PORT=3306 -e MYSQL\_USER=root -e MYSQL_PASSWORD='root123' ipunktbs/xtrabackup restore full-2021-05-13-072843
+
+chown -R mysql.mysql *
+systemctl start mysqld.service
+============================增量备份=====================================
+BACKUP_MODE=INCREMENTAL
+
+增量备份要以一个全量备份为基础进行备份。
+docker run -v /mysql_bak/full:/target  -v /var/lib/mysql:/var/lib/mysql -e BACKUP_MODE=INCREMENTAL -e MYSQL\_HOST=192.168.89.153 -e MYSQL\_PORT=3306 -e MYSQL\_USER=root -e MYSQL_PASSWORD='root123' ipunktbs/xtrabackup run backup
+
+--incremental-basedir=/data/mysqlbackup/2018-08-20_15-05-11
+full-FULL_BACKUP_TIMESTAMP-inc-YY-mm-dd-HH_ii
+
+full-2021-05-13-072843-inc-2021-05-13-073757
+docker run -v /mysql_bak/full:/target -v /var/lib/mysql:/var/lib/mysql -e MYSQL\_HOST=192.168.89.153 -e MYSQL\_PORT=3306 -e MYSQL\_USER=root -e MYSQL_PASSWORD='root123' ipunktbs/xtrabackup restore full-2021-05-13-072843-inc-2021-05-13-073757
+================================跨服务器备份===============================
+错误：
+docker run -v /mysql_bak/full:/target  -v /var/lib/mysql:/var/lib/mysql -e BACKUP_MODE=FULL -e MYSQL\_HOST=192.168.89.151 -e MYSQL\_PORT=3306 -e MYSQL\_USER=root -e MYSQL_PASSWORD='!QAZ1qaz' ipunktbs/xtrabackup run backup
+
+docker run -v /mysql_bak/full:/target  -v /var/lib/mysql:/var/lib/mysql -e BACKUP_MODE=FULL --host 192.168.89.151 --port 3306 --user root --password '!QAZ1qaz' ipunktbs/xtrabackup run backup
+
+docker run -it -v /mysql_bak/full:/target  -v /var/lib/mysql:/var/lib/mysql -e BACKUP_MODE=FULL ipunktbs/xtrabackup --host 192.168.89.151 --port 3306 --user root --password '!QAZ1qaz' run backup
+
+docker run -v /mysql_bak/full:/target  -v /var/lib/mysql:/var/lib/mysql -e BACKUP_MODE=FULL  -e MYSQL\_USER=root -e MYSQL_PASSWORD='!QAZ1qaz' ipunktbs/xtrabackup run backup
+
+
+docker run -v /mysql_bak/otherfull:/target  -v /var/lib/mysql:/var/lib/mysql -e BACKUP_MODE=INCREMENTAL -e MYSQL\_HOST=192.168.89.151 -e MYSQL\_PORT=3306 -e MYSQL\_USER=root -e MYSQL_PASSWORD='!QAZ1qaz' ipunktbs/xtrabackup run backup
+
+
+
+
+
+
+
+
+用法：
+======================================================================
+= Usage
+======================================================================
+docker run ipunktbs/xtrabackup -v name-backup-directory:/target [COMMAND]
+
+The ipunktbs/xtrabackup docker image tries to provide percona xtrabackup for use in rancher environments
+
+======================================================================
+= Commands
+======================================================================
+- backup
+  Does a backup, prepare, prepare cycle from /var/lib/mysql to /target/YY-mm-dd-HH_ii
+  If the environment variable RUN_EVERY is set then backups will continue to be made, with
+ 'sleep $RUN_EVERY' in between
+
+- restore YY-mm-dd-HH_ii
+  Does a copy-back /target/YY-mm-dd-HH_ii to /var/lib/mysql
+
+- run COMMAND
+  Runs the given command within the container.
+
+
+
+
+
+
+
+
+
+
+===========================================
+配置dns：vi /etc/resolv.conf
+nameserver 192.168.89.1
+nameserver 8.8.8.8  //添加谷歌dns
+
+
+
+
+
+CREATE TABLE "lite_nodeb" ( -- 基站表
+  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT ,--  'ID，自增'
+  `user_nodeb_id` varchar(255) DEFAULT NULL ,--  '用户指定的ID'
+  `nodeb_name` varchar(255) DEFAULT NULL ,--  '基站名称'
+  `is_active` char(1) DEFAULT '1' ,--  '是否激活'
+  `longitude` double DEFAULT NULL ,--  '基站经度'
+  `latitude` double DEFAULT NULL ,--  '基站纬度'
+  `coordinate_x` double DEFAULT NULL ,--  '地图横坐标'
+  `coordinate_y` double DEFAULT NULL ,--  '地图纵坐标'
+  `technology_system_id` char(1) DEFAULT NULL ,-- '系统制式ID({0:GSM、1:TD-SCDMA、2:TD-LTE、3:FDD、4：5G})'
+  `manufacturer` varchar(255) DEFAULT NULL ,--  '设备商'
+  `version` varchar(50) DEFAULT '1.0' ,--  '版本号'
+	`nodeb_type` char(1) DEFAULT '0' , -- 基站类型({0:宏站、1:微站、2:小区分布、3:室分}
+	`address` varchar(255) DEFAULT NULL , -- 详细地址
+	`province` varchar(20) DEFAULT NULL , -- 省份
+	`city` varchar(50) DEFAULT NULL , -- 地市
+	`district` varchar(50) DEFAULT NULL , -- 区县
+	`bbu_model` varchar(50) DEFAULT NULL , -- bbu设备型号
+	`rru_model` varchar(50) DEFAULT NULL , -- rru设备型号
+	`create_date` datetime DEFAULT NULL ,--  '创建时间'
+  `update_date` datetime DEFAULT NULL ,--  '更新时间'
+	`height` double DEFAULT NULL , -- 基站高度
+	`del_flag` varchar(32) DEFAULT 0, --  '删除标记，0未删除，1已删除'
+  `md5` varchar(32) DEFAULT NULL --  'md5'
+);
+
+
+docker version查看安装docker有没有
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun 安装docker环境
+
+
+docker run -v /mysql_bak:/target -v /var/lib/mysql:/var/lib/mysql -e MYSQL\_HOST=192.168.89.153 -e MYSQL\_PORT=3306 -e MYSQL\_USER=root -e MYSQL_PASSWORD='root123' ipunktbs/xtrabackup restore full-2021-05-17-024753-inc-2021-05-17-031748
+docker run -v /mysql_bak:/target  -v /var/lib/mysql:/var/lib/mysql -e BACKUP_MODE=INCREMENTAL -e MYSQL\_HOST=192.168.89.153 -e MYSQL\_PORT=3306 -e MYSQL\_USER=root -e MYSQL_PASSWORD='root123' ipunktbs/xtrabackup run backup
+
+
+设计开机自启动
+定时任务：https://www.cnblogs.com/kenshinobiy/p/7685229.html
+修改/添加
+crontab -e
+
+查看状态crontab
+service crond status
+
+sbin/service crond start //启动服务
+
+/sbin/service crond stop //关闭服务
+
+/sbin/service crond restart //重启服务
+
+/sbin/service crond reload //重新载入配置

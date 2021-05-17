@@ -458,3 +458,9 @@ Linux 系统是一个多用户多任务的分时操作系统，任何一个要�
 生成class文件后，执行java 类名，可能会失败，如果找不到类方法，则设置临时系统路径
 
 调用java -cp ./ 类名，即可，如java -cp ./ TestJnaQ
+
+
+
+1、rpm -q rsync 查看rsync版本号
+
+rpm -q centos-release 查看centos版本号。
