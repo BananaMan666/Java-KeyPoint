@@ -1,6 +1,8 @@
 # Java-KeyPoint
 存储许多我平时用到的小功能代码和自己总结的内容，以及git的使用技巧。
 
+目前连接的git ssh：git@github.com:BananaMan666/Java-KeyPoint.git
+
 ### 一、分支操作
 
 1、创建分支：git branch branchName /git 
