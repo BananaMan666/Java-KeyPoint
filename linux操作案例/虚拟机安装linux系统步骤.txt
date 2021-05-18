@@ -1,0 +1,1 @@
+vm安装centos7：https://blog.csdn.net/qq_39135287/article/details/83993574/
