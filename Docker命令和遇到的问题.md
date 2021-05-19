@@ -25,3 +25,13 @@ cp sources.list sources.list.old //先将老的文件备份一下
 echo 'xxx' > /etc/apt/sources.list	//通过echo将本地源写入sources.list文件，然后重新执行
 xxx:表示本地源
 ```
+
+2、docker启动命令和关闭命令
+
+systemctl start docker
+
+systemctl stop docker
+
+systemctl restart docker
+
+docker ps -a
