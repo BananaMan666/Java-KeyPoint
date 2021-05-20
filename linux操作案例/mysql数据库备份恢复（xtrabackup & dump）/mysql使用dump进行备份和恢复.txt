@@ -1,0 +1,8 @@
+备份：
+mysqldump -uroot -p'root123' xxx > /mysqldump/a.sql
+xxx表示可选参数，具体可以搜索
+也可以指定具体的数据库或者表等等。
+
+备份恢复：
+mysql -uroot -p'root123' xxx < /mysqldump/a.sql
+其中xxx为指定的具体数据库或者表，后面的/mysqldump/a.sql为具体存储sql文件的路径文件
