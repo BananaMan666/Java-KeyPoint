@@ -484,15 +484,16 @@ Linux 系统是一个多用户多任务的分时操作系统，任何一个要�
 
 - **`reboot`：** **`reboot`：** 重开机。**`reboot -w`：** 做个重开机的模拟（只有纪录并不会真的重开机）。
 
+- **init 6**， 重启服务器
+
 
 
 ### 特殊问题：
 
-在linux执行一个java方法，javac  类名.java，比如：javac TestJnaQ.java
+1、在linux执行一个java方法，javac  类名.java，比如：javac TestJnaQ.java
 
 生成class文件后，执行java 类名，可能会失败，如果找不到类方法，则设置临时系统路径
 
 调用java -cp ./ 类名，即可，如java -cp ./ TestJnaQ
 
-
-
+2、使用xshell，可以使用rz + 回车命令将window本地文件上传到当前文件内
