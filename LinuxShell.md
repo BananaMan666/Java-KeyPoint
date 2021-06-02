@@ -48,6 +48,10 @@ such as： nohub ./test.sh >nohub.log 2>&1 &
 
 
 
+6、查看服务器磁盘占用:df -h
+
+
+
 
 
 ### 前端部署：
@@ -496,4 +500,23 @@ Linux 系统是一个多用户多任务的分时操作系统，任何一个要�
 
 调用java -cp ./ 类名，即可，如java -cp ./ TestJnaQ
 
-2、使用xshell，可以使用rz + 回车命令将window本地文件上传到当前文件内
+2、使用xshell，可以使用**rz** + 回车命令将window本地文件上传到当前文件内
+
+**sz  filename**  可以將linux文件下載到window本地中。
+
+rz：reload， sz：send
+
+3、ps -ef|grep planplat|grep -v grep|awk '{print $2}'|xargs kill -9 
+
+ps -ef|：查询进程的详细信息，|将查询到的进程名传递过去，
+
+grep planplat| ：grep planplat查询planplat的进程名，|将后面忽略的进程传递过去，
+
+grep -v grep|：grep -v grep在使用grep 查询的时候-v grep 忽略进程，
+
+awk '{print $2}'|：字符处理，awk拿到进程的相关信息（准确来说是第2个字段信息，也就是进程ID号）
+
+|xargs kill -9：xrags 将字前面截取的字符放到kill -9命令后面进行执行。
+
+**注意** ：|管道的作用是将前面的数据传到后面的命令中去，管道前的命令执行后的输出，是管道后面执行命令的输入
+
