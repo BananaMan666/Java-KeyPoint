@@ -43,3 +43,40 @@ git merge master 		#合并matser，将master分支的修改代码合并到dev�
 git push -u origin dev
 ```
 
+3、版本回退和撤销git add
+
+```SHELL
+ 1、git add 添加 多余文件 
+这样的错误是由于， 有的时候 可能
+git add . （空格+ 点） 表示当前目录所有文件，不小心就会提交其他文件
+
+git add 如果添加了错误的文件的话
+撤销操作
+git status 先看一下add 中的文件 
+git reset HEAD 如果后面什么都不跟的话 就是上一次add 里面的全部撤销了 
+git reset HEAD XXX/XXX/XXX.java 就是对某个文件进行撤销了
+
+版本回退：https://www.cnblogs.com/aligege/p/10221174.html
+2、reset（不推荐）
+通过reset的方式，把head指针指向之前的某次提交，reset之后，后面的版本就找不到了
+操作步骤如下：
+
+1、在gitlab上找到要恢复的版本号，如：
+139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96 
+
+2、在客户端执行如下命令（执行前，先将本地代码切换到对应分支）：
+git reset --hard 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96 
+
+3、强制push到对应的远程分支（如提交到develop分支）
+git push -f -u origin develop
+
+OK，现在到服务器上看到的代码就已经被还原回去了。这种操作存在一个问题，服务器上的代码虽然被还原了，但假如有多个人在使用，他们本地的版本依然是比服务器上的版本高的，所以，别人再重新提交代码的话，你撤销的操作又会被重新，你上面的操作也就白操作了。解决办法是，让别人把本地的分支先删掉，然后重新从服务器上拉取分支
+
+revert（推荐）
+这种方式不会把版本往前回退，而是生成一个新的版本。所以，你只需要让别人更新一下代码就可以了，你之前操作的提交记录也会被保留下来
+1、找到你误提交之前的版本号
+2、git revert -n 版本号
+3、git commit -m xxxx 提交
+4、git push 推送到远程
+```
+
