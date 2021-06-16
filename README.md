@@ -80,3 +80,24 @@ revert（推荐）
 4、git push 推送到远程
 ```
 
+4、git 从远程仓库获取所有分支
+
+```shell
+git clone只能clone远程库的master分支，无法clone所有分支，解决办法如下：
+
+找一个干净目录，假设是git_work
+cd git_work
+git clone http://myrepo.xxx.com/project/.git ,这样在git_work目录下得到一个project子目录
+cd project
+git branch -a，列出所有分支名称如下：
+remotes/origin/dev
+remotes/origin/release
+git checkout -b dev origin/dev，作用是checkout远程的dev分支，在本地起名为dev分支，并切换到本地的dev分支
+git checkout -b release origin/release，作用参见上一步解释
+git checkout dev，切换回dev分支，并开始开发。
+
+其中：git checkout -b release origin/release
+-b release 在本地创建一个分支，origin/远程分支名称，例如test
+checkout 切换到创建的这个分支来。
+```
+
