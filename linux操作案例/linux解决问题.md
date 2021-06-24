@@ -9,3 +9,5 @@ https://blog.csdn.net/runner1920/article/details/79495595
 #### 2、redis操作
 
 主从复制，哨兵模式，和集群cluster
+
+https://www.jianshu.com/p/fa29d4ef9cc7
