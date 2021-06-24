@@ -148,3 +148,21 @@ public class TransModelMatchParamConstants {
 https://blog.csdn.net/qq_17810899/article/details/90642207
 
 https://blog.csdn.net/runner1920/article/details/79495595
+
+
+
+#### 6、nginx添加ssl，变成https访问
+
+https://segmentfault.com/a/1190000004976222
+
+生成crt和key后，去nginx执行的配置文件中添加如下修改
+
+```shell
+server {
+    listen       8181 ssl;	  #添加ssl证书
+    server_name  192.168.89.71;	   #server_name要和证书申请方式相同
+    ssl_certificate /etc/nginx/ssl/nginx.crt;	#证书地址
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;	#密码
+```
+
+![ssl证书信息](C:\Users\刘咸鱼\Desktop\gitHub-local\JavaKeyPoint\git-picture\ssl证书信息.jpg)
