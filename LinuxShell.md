@@ -638,3 +638,12 @@ awk '{print $2}'|：字符处理，awk拿到进程的相关信息（准确来说
 
 **注意** ：|管道的作用是将前面的数据传到后面的命令中去，管道前的命令执行后的输出，是管道后面执行命令的输入
 
+
+
+# 文件所在地址
+
+nameserver  /etc/resolv.conf
+
+网卡配置文件 /etc/sysconfig/network-scripts/ifcfg-ens32
+
+系统配置文件 /etc/profile
