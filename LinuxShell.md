@@ -647,3 +647,5 @@ nameserver  /etc/resolv.conf
 网卡配置文件 /etc/sysconfig/network-scripts/ifcfg-ens32
 
 系统配置文件 /etc/profile
+
+hosts配置 /etc/hosts
