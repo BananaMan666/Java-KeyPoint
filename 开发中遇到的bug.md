@@ -170,3 +170,5 @@ server {
 #### 7、freemaker模板生成代码demo
 
 https://blog.csdn.net/weixin_43424932/article/details/104253977
+
+dev-task freemaker自动生成代码
