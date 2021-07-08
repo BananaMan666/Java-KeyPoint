@@ -166,3 +166,7 @@ server {
 ```
 
 ![ssl证书信息](C:\Users\刘咸鱼\Desktop\gitHub-local\JavaKeyPoint\git-picture\ssl证书信息.jpg)
+
+#### 7、freemaker模板生成代码demo
+
+https://blog.csdn.net/weixin_43424932/article/details/104253977
