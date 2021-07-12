@@ -1,0 +1,6 @@
+rabbitmq安装踩坑
+https://www.cnblogs.com/saryli/p/9729591.html
+1、erl版本要和rabbitmq版本对应。
+对应关系：https://www.rabbitmq.com/which-erlang.html#compatibility-matrix
+
+卸载erl：https://www.cnblogs.com/ZCrystal/p/11365078.html
