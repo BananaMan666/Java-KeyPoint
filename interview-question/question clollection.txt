@@ -1,3 +1,11 @@
 1、spring解决循环依赖：https://blog.csdn.net/u010853261/article/details/77940767
 
 2、字节面试经验：https://zhuanlan.zhihu.com/p/92368343
+
+3、模板面试题：https://www.cnblogs.com/interesting-whh/p/12692679.html
+
+4、动态代理：https://www.jianshu.com/p/2ab89f7baac9
+
+5、哈希map：https://zhuanlan.zhihu.com/p/378621075
+
+6、redis操作方法：https://www.cnblogs.com/dw3306/p/12840012.html
