@@ -9,3 +9,5 @@
 5、哈希map：https://zhuanlan.zhihu.com/p/378621075
 
 6、redis操作方法：https://www.cnblogs.com/dw3306/p/12840012.html
+
+7、mysql index原理：https://www.cnblogs.com/bypp/p/7755307.html1
