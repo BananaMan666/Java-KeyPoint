@@ -82,3 +82,33 @@ having是在分好组后找出特定的分组，通常是以筛选聚合函数�
 使用了having必须使用group by，但是使用group by 不一定使用having。不允许使用双重聚合函数，所以在对分组进行筛选的时候
 
 可以用order by 排序，然后用limit也可以找到极值。
+
+
+
+#### [185. 部门工资前三高的所有员工](https://leetcode-cn.com/problems/department-top-three-salaries/)
+
+```sql
+select d.Name AS 'Department', e1.Name AS 'Employee', e1.Salary
+from employee e1 
+join Department d on d.id = e1.departmentId
+where 3> (
+    select count(distinct e2.salary)
+    from employee e2 
+    where e1.salary < e2.salary 
+    and e1.departmentId = e2.departmentId
+)
+
+分析：公司里前 3 高的薪水意味着有不超过 3 个工资比这些值大
+select e1.Name as 'Employee', e1.Salary
+from Employee e1
+where 3 >
+(
+    select count(distinct e2.Salary)
+    from Employee e2
+    where e2.Salary > e1.Salary
+)
+在加上e1.departmentId = e2.departmentId：表示同部门里薪资前三高的人
+把表 Employee 和表 Department 连接来获得部门信息。
+over
+```
+
