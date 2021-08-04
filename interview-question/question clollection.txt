@@ -10,4 +10,53 @@
 
 6、redis操作方法：https://www.cnblogs.com/dw3306/p/12840012.html
 
-7、mysql index原理：https://www.cnblogs.com/bypp/p/7755307.html1
+7、mysql index原理：https://www.cnblogs.com/bypp/p/7755307.html
+
+8、spring IOC源码分析：https://javadoop.com/post/spring-ioc
+
+9 redis实现消息队列:https://www.cnblogs.com/telwanggs/p/12325395.html
+
+10、mybatis原理：https://blog.csdn.net/u014745069/article/details/80788127
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+my website address：
+1、北化vpn：https://w.buct.edu.cn/login
+2、研究生管理平台：https://w.buct.edu.cn/http-8080/77726476706e69737468656265737421e9fd528569327d536a468ca88d1b203b/pyxx/login.aspx
+3、共青团：https://www.bjyouth.net/#
+
+4、b站：https://www.bilibili.com/
+5、letcode：https://leetcode-cn.com/problemset/algorithms/
+github：https://github.com/
+博客园：https://www.cnblogs.com/
+docker进阶：https://www.bilibili.com/video/BV1kv411q7Qc
+java源码：https://mrbird.cc/
+spring面试题：https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/framework/spring/Spring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93.md
+复习笔记：https://github.com/CyC2018/CS-Notes
