@@ -10,9 +10,8 @@
 
 6、redis操作方法：https://www.cnblogs.com/dw3306/p/12840012.html
 
-<<<<<<< HEAD
 7、分库分表：https://blog.csdn.net/weixin_44062339/article/details/100491744
-=======
+
 7、mysql index原理：https://www.cnblogs.com/bypp/p/7755307.html
 
 8、spring IOC源码分析：https://javadoop.com/post/spring-ioc
@@ -30,6 +29,7 @@ https://blog.csdn.net/qq_38672855/article/details/80776593
 
 13、lombok：https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485385&idx=2&sn=a7c3fb4485ffd8c019e5541e9b1580cd&chksm=cea24802f9d5c1144eee0da52cfc0cc5e8ee3590990de3bb642df4d4b2a8cd07f12dd54947b9&token=1381785723&lang=zh_CN#rd
 
+14、事务失效六种情况：https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247486483&idx=2&sn=77be488e206186803531ea5d7164ec53&chksm=cea243d8f9d5cacecaa5c5daae4cde4c697b9b5b21f96dfc6cce428cfcb62b88b3970c26b9c2&token=816772476&lang=zh_CN#rd
 
 
 
