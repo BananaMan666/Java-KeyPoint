@@ -10,4 +10,66 @@
 
 6、redis操作方法：https://www.cnblogs.com/dw3306/p/12840012.html
 
+<<<<<<< HEAD
 7、分库分表：https://blog.csdn.net/weixin_44062339/article/details/100491744
+=======
+7、mysql index原理：https://www.cnblogs.com/bypp/p/7755307.html
+
+8、spring IOC源码分析：https://javadoop.com/post/spring-ioc
+
+9 redis实现消息队列:https://www.cnblogs.com/telwanggs/p/12325395.html
+
+10、mybatis原理：https://blog.csdn.net/u014745069/article/details/80788127
+
+11、生产者消费者问题，哲学家就餐问题，读者写者问题
+https://blog.csdn.net/weixin_28760063/article/details/100718296
+https://www.cnblogs.com/vettel/p/3438257.html
+https://blog.csdn.net/qq_38672855/article/details/80776593
+
+12、Rancher部署：https://www.cnblogs.com/zhangxingeng/p/11753959.html
+
+13、lombok：https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485385&idx=2&sn=a7c3fb4485ffd8c019e5541e9b1580cd&chksm=cea24802f9d5c1144eee0da52cfc0cc5e8ee3590990de3bb642df4d4b2a8cd07f12dd54947b9&token=1381785723&lang=zh_CN#rd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+my website address：
+1、北化vpn：https://w.buct.edu.cn/login
+2、研究生管理平台：https://w.buct.edu.cn/http-8080/77726476706e69737468656265737421e9fd528569327d536a468ca88d1b203b/pyxx/login.aspx
+3、共青团：https://www.bjyouth.net/#
+
+4、b站：https://www.bilibili.com/
+5、letcode：https://leetcode-cn.com/problemset/algorithms/
+github：https://github.com/
+博客园：https://www.cnblogs.com/
+docker进阶：https://www.bilibili.com/video/BV1kv411q7Qc
+java源码：https://mrbird.cc/
+spring面试题：https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/framework/spring/Spring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93.md
+复习笔记：https://github.com/CyC2018/CS-Notes
+>>>>>>> 3cb9a13add38f3f9fefe2bb714a6edf3345bd0e8
