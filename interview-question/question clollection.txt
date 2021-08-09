@@ -9,3 +9,5 @@
 5、哈希map：https://zhuanlan.zhihu.com/p/378621075
 
 6、redis操作方法：https://www.cnblogs.com/dw3306/p/12840012.html
+
+7、分库分表：https://blog.csdn.net/weixin_44062339/article/details/100491744
