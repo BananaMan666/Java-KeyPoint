@@ -18,6 +18,15 @@
 
 10、mybatis原理：https://blog.csdn.net/u014745069/article/details/80788127
 
+11、生产者消费者问题，哲学家就餐问题，读者写者问题
+https://blog.csdn.net/weixin_28760063/article/details/100718296
+https://www.cnblogs.com/vettel/p/3438257.html
+https://blog.csdn.net/qq_38672855/article/details/80776593
+
+12、Rancher部署：https://www.cnblogs.com/zhangxingeng/p/11753959.html
+
+13、lombok：https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485385&idx=2&sn=a7c3fb4485ffd8c019e5541e9b1580cd&chksm=cea24802f9d5c1144eee0da52cfc0cc5e8ee3590990de3bb642df4d4b2a8cd07f12dd54947b9&token=1381785723&lang=zh_CN#rd
+
 
 
 
